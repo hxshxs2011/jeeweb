@@ -1,0 +1,11 @@
+cn\jeeweb\common\mybatis\mvc\service\impl\TreeCommonServiceImpl.class
+cn\jeeweb\common\mybatis\mvc\service\ITreeCommonService.class
+cn\jeeweb\common\mybatis\mvc\service\ICommonService.class
+cn\jeeweb\common\mybatis\mvc\wrapper\EntityWrapper.class
+cn\jeeweb\common\mybatis\mvc\entity\TreeEntity.class
+cn\jeeweb\common\mybatis\mvc\service\impl\CommonServiceImpl.class
+cn\jeeweb\common\mybatis\mvc\injector\AutoSqlInjector.class
+cn\jeeweb\common\mybatis\mvc\controller\BaseTreeController.class
+cn\jeeweb\common\mybatis\mvc\mapper\BaseTreeMapper.class
+cn\jeeweb\common\mybatis\mvc\controller\BaseCRUDController.class
+cn\jeeweb\common\mybatis\mvc\parse\QueryToWrapper.class
