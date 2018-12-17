@@ -1,0 +1,33 @@
+<% layout('/layouts/list.html', {title: ctitle}){ %>
+
+    <table id="view_log_tab" class="table table-striped table-bordered table-hover" >
+        <thead>
+        <tr>
+            <th>访问模块名称</th>
+            <th>访问人</th>
+            <th>访问时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+<table id="view_log_tab_oracle" class="table table-striped table-bordered table-hover" >
+    <thead>
+    <tr>
+        <th>访问模块名称_oracle</th>
+        <th>访问人</th>
+        <th>访问时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+
+    <link rel="stylesheet" type="text/css" href="${staticPath}/modules/datatables/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="${staticPath}/modules/datatables/Buttons-1.5.4/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="${staticPath}/modules/datatables/datatables.min.js"></script>
+
+    <script src="${staticPath}/modules/testdatatables/testdatatables.js"></script>
+<% } %>

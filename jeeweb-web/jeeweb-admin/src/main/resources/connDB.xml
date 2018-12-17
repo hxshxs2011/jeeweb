@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connDB>
+	<dbname name="218" url="jdbc:oracle:thin:@10.100.150.18:1521:orcl"
+		user="jrorder" password="jrorder" />
+	<dbname name="DMS_product" url="jdbc:oracle:thin:@10.100.3.26:1521:ctrdms"
+		user="jrdms" password="jrdms1234" />
+	<dbname name="jrmes" url="jdbc:oracle:thin:@10.100.150.34:1521:mes"
+		user="mes" password="mes" />
+	<dbname name="117" url="jdbc:oracle:thin:@10.100.8.118:1521:orcl"
+		user="jirui" password="jirui" />
+	<dbname name="118" url="jdbc:oracle:thin:@10.100.8.118:1521:orcl"
+		user="jirui" password="jirui" />
+	<dbname name="OA" url="jdbc:oracle:thin:@10.100.8.249:1521:hekoa"
+		user="ecology" password="ecology" />
+	<dbname name="leiwang" url="jdbc:sqlserver://10.100.10.200;DatabaseName=jrlw;user=sa;password=sa"/>
+</connDB>

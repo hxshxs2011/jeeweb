@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Class-Path: hibernate-validator-6.0.9.Final.jar spring-beans-5.0.5.REL
+ EASE.jar tomcat-embed-websocket-8.5.29.jar javax.annotation-api-1.3.2
+ .jar spring-expression-5.0.5.RELEASE.jar tomcat-embed-el-8.5.29.jar j
+ ackson-datatype-jsr310-2.9.5.jar jboss-logging-3.3.2.Final.jar spring
+ -aop-5.0.5.RELEASE.jar spring-core-5.0.5.RELEASE.jar validation-api-2
+ .0.1.Final.jar jstl-1.2.jar spring-webmvc-5.0.5.RELEASE.jar spring-bo
+ ot-2.0.1.RELEASE.jar classmate-1.3.4.jar spring-boot-starter-2.0.1.RE
+ LEASE.jar spring-context-5.0.5.RELEASE.jar slf4j-api-1.7.25.jar sprin
+ g-boot-starter-web-2.0.1.RELEASE.jar jackson-datatype-jdk8-2.9.5.jar 
+ jackson-module-parameter-names-2.9.5.jar jackson-core-2.9.5.jar sprin
+ g-jcl-5.0.5.RELEASE.jar spring-boot-starter-tomcat-2.0.1.RELEASE.jar 
+ jackson-annotations-2.9.0.jar jackson-databind-2.9.5.jar spring-boot-
+ autoconfigure-2.0.1.RELEASE.jar spring-boot-devtools-2.0.1.RELEASE.ja
+ r spring-web-5.0.5.RELEASE.jar snakeyaml-1.19.jar spring-boot-starter
+ -json-2.0.1.RELEASE.jar tomcat-embed-core-8.5.29.jar
+Main-Class: cn.jeeweb.web.WebBootApplication
+
