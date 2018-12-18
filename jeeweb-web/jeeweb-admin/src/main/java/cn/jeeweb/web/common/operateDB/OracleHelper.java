@@ -293,6 +293,8 @@ public class OracleHelper {
 				}
 		}
 	}
+
+
 	/*
 	 * 执行 update,insert,delete
 	 * 
@@ -325,24 +327,16 @@ public class OracleHelper {
 				}
 		}
 	}
-	
-//	/**
-//	 * 获取list的X行X列的数据，从0开始
-//	 * 
-//	 * @param tablelist
-//	 *            ,row,col,如：get_xy_FromJSONArray(jsarry, i, 0).toString()
-//	 *            JSONArray jsarry = JSONArray.fromObject(tablelist);
-//	 * @return string
-//	 */
-//	public String get_xy_FromJSONArray(JSONArray jsarry, int row, int col) {	
-//		String cols[] = getAllCollumns(tablelist);
-//
-//		return jsarry.getJSONObject(row).get(cols[col]).toString();
-//	}
-	
+
+	/*获取单行数据*/
+	public String get_xy_fromList(List<?> tablist,int row,String col)
+	{
+		return ((Map)tablist.get(row)).get(col.toUpperCase()).toString();
+	}
+
 	/**最好不用，性能不好
 	 * 获取list的X行X列的数据，从0开始
-	 * 
+	 *
 	 * @param tablelist
 	 *            ,row,col,如：get_xy_FromList(list, i, 0).toString()
 	 * @return string
@@ -356,7 +350,7 @@ public class OracleHelper {
 
 	/**最好不用，性能不好
 	 * 获取list的X行和列的名称获取数据，从行0开始，列名用大写字母
-	 * 
+	 *
 	 * @param tablelist
 	 *            ,row,col，如：get_xy_FromList(list, i,"YEARM").toString()
 	 * @return String
@@ -373,10 +367,10 @@ public class OracleHelper {
 			return "";
 		}
 	}
-	
+
 	/**
 	 * 获取JSONArray的X行和列的名称获取数据，从行0开始，列名用大写字母(这样可以提高读取速度)==推荐使用
-	 * 
+	 *
 	 * @param tablelist
 	 *            ,row,col，如：
 	 *            JSONArray jsarry = JSONArray.fromObject(tablelist);
@@ -394,6 +388,7 @@ public class OracleHelper {
 			return "";
 		}
 	}
+
 
 	/**
 	 * 获取list表中的列数

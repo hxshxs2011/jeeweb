@@ -11,3 +11,4 @@ jeeweb-common/jeeweb-common-base/target/jeeweb-common-base.jar
 jeeweb-common/jeeweb-common-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 jeeweb-common/jeeweb-common-email/target/jeeweb-common-email.jar
 target/
+.idea/workspace.xml

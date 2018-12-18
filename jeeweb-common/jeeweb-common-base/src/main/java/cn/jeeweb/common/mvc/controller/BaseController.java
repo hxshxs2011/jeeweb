@@ -5,6 +5,7 @@ import cn.jeeweb.common.utils.StringUtils;
 import cn.jeeweb.common.utils.convert.DateConvertEditor;
 import cn.jeeweb.common.utils.convert.StringConvertEditor;
 import com.alibaba.fastjson.JSON;
+import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 /**
@@ -125,6 +127,32 @@ public class BaseController {
 			currentViewPrefix = this.getClass().getSimpleName().replace("Controller", "").toLowerCase();
 		}
 		return currentViewPrefix;
+	}
+
+	/**
+	 * 以JSON格式输出
+	 * @param response
+	 */
+	protected void responseOutWithJson(HttpServletResponse response,
+									   Object responseObject) {
+		//将实体对象转换为JSON Object转换
+
+		JSONObject responseJSONObject = JSONObject.fromObject(responseObject);
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+			out.append(responseJSONObject.toString());
+			//logger.debug("返回是\n");
+			//logger.debug(responseJSONObject.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (out != null) {
+				out.close();
+			}
+		}
 	}
 
 }
