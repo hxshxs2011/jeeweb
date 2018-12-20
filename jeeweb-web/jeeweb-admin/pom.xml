@@ -44,12 +44,11 @@
             <artifactId>jeeweb-ui-static</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>cn.jeeweb</groupId>
-            <artifactId>jeeweb-ui-tag</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
+          <dependency>
+                    <groupId>cn.jeeweb</groupId>
+                    <artifactId>jeeweb-ui-tag</artifactId>
+                    <version>${project.parent.version}</version>
+           </dependency>
 
         <dependency>
             <groupId>cn.jeeweb</groupId>

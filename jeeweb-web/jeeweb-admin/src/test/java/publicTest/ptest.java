@@ -2,13 +2,17 @@ package publicTest;
 
 import cn.jeeweb.web.common.constant.otherDBConstant;
 import cn.jeeweb.web.common.operateDB.OracleHelper;
+import com.alibaba.fastjson.JSON;
+import org.beetl.core.Configuration;
+import org.beetl.core.GroupTemplate;
+import org.beetl.core.Template;
+import org.beetl.core.resource.ClasspathResourceLoader;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.*;
@@ -81,4 +85,27 @@ public class ptest {
             // String>)map.get("jrmes")).get("url"));
 
         }
+    @Test
+    //直接路径
+    public void tet2()
+    {
+        String json = "{\"showQueryLabel\":true,\"gridtype\":\"jqgrid\",\"appPath\":\"\",\"queryList\":[],\"toobarList\":[],\"datatype\":\"json\",\"ajaxType\":\"get\",\"rowNum\":10,\"staticPath\":\"/static\",\"sortorder\":\"asc\",\"id\":\"codegenGrid\",\"editurl\":\"clientArray\",\"treeGrid\":false,\"adminPath\":\"\",\"height\":\"450\",\"ctx\":\"\",\"editable\":false,\"columnList\":[],\"gridShowType\":\"list\",\"pageable\":true,\"buttonList\":[],\"sortable\":true,\"url\":\"/generator/table/ajaxList?gridtype=jqgrid\",\"columnDictMap\":{},\"multiselect\":true,\"sortname\":\"id\",\"async\":false,\"baseUrl\":\"/generator/table\",\"width\":\"auto\",\"multiSort\":true,\"page\":1}";
+        Map<String,Object> dataMap = JSON.parseObject(json,Map.class);
+        try {
+            ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader();
+            Configuration cfg = Configuration.defaultConfiguration();
+            GroupTemplate gt = new GroupTemplate(resourceLoader, cfg);
+            Template t = gt.getTemplate("samples/testfragment.txt");
+            t.binding(dataMap);
+            String str = t.render();
+            System.out.println(str);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
 }
