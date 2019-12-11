@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/jeeweb-common" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-base" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-email" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-hibernatemvc" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-mybatismvc" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-oss" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-quartz" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-query" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-security" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-common/jeeweb-common-sms" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-ui" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-ui/jeeweb-ui-static" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-web" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-web/jeeweb-bbs" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/jeeweb-web/jeeweb-generator" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

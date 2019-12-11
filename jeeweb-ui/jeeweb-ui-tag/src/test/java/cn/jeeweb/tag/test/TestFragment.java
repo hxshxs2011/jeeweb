@@ -41,7 +41,7 @@ public class TestFragment {
     }
 
     @Test
-    //classpath:注意是在src目录下的resources目录下classpath才起效果
+    //classpath:注意是在src目录下的resources目录下classpath才起效果,
     public  void tet()
     {
         String json = "{\"showQueryLabel\":true,\"gridtype\":\"jqgrid\",\"appPath\":\"\",\"queryList\":[],\"toobarList\":[],\"datatype\":\"json\",\"ajaxType\":\"get\",\"rowNum\":10,\"staticPath\":\"/static\",\"sortorder\":\"asc\",\"id\":\"codegenGrid\",\"editurl\":\"clientArray\",\"treeGrid\":false,\"adminPath\":\"\",\"height\":\"450\",\"ctx\":\"\",\"editable\":false,\"columnList\":[],\"gridShowType\":\"list\",\"pageable\":true,\"buttonList\":[],\"sortable\":true,\"url\":\"/generator/table/ajaxList?gridtype=jqgrid\",\"columnDictMap\":{},\"multiselect\":true,\"sortname\":\"id\",\"async\":false,\"baseUrl\":\"/generator/table\",\"width\":\"auto\",\"multiSort\":true,\"page\":1}";

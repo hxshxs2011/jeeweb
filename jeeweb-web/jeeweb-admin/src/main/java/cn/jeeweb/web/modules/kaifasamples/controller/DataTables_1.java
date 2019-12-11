@@ -1,5 +1,6 @@
 package cn.jeeweb.web.modules.kaifasamples.controller;
 
+import cn.jeeweb.common.http.Response;
 import cn.jeeweb.common.mvc.annotation.ViewPrefix;
 import cn.jeeweb.common.mvc.controller.BaseController;
 import cn.jeeweb.common.security.shiro.authz.annotation.RequiresMethodPermissions;
@@ -8,9 +9,11 @@ import cn.jeeweb.web.aspectj.annotation.Log;
 import cn.jeeweb.web.aspectj.enums.LogType;
 import cn.jeeweb.web.common.constant.otherDBConstant;
 import cn.jeeweb.web.common.operateDB.OracleHelper;
+import cn.jeeweb.web.modules.sys.entity.Organization;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,10 +24,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by xianshun.huang on 2018/12/10.
@@ -77,9 +77,9 @@ public class DataTables_1 extends BaseController {
 
             // 获取用户过滤框里的字符
             List<String> sArray = new ArrayList<String>();
-            sArray.add(" APPROVAL_PERSON like '%" + search_str + "%'");
-            sArray.add(" REMARK like '%" + search_str + "%'");
-            sArray.add(" APPROVAL_DATE like '%" + search_str + "%'");
+            sArray.add(" XM_NAME like '%" + search_str + "%'");
+            sArray.add(" XM_B_DATE like '%" + search_str + "%'");
+            sArray.add(" XM_HYZKSJ like '%" + search_str + "%'");
 
             if (sArray.size() > 0) {
                 for (int i = 0; i < sArray.size() - 1; i++) {
@@ -90,17 +90,17 @@ public class DataTables_1 extends BaseController {
             individualSearch = " and " + individualSearch;
         }
         //
-        String sqlstr_for_download = "select * from TT_VEHICLE_CHECKAUTHITEM where 1=1 " + individualSearch + order_by_str;
+        String sqlstr_for_download = "select * from XM_MANAGE where 1=1 " + individualSearch + order_by_str;
         HttpSession session = request.getSession();
-        session.setAttribute("TT_VEHICLE_CHECKAUTHITEM", sqlstr_for_download);// 定义下载的SQL语句；
+        session.setAttribute("XM_MANAGE", sqlstr_for_download);// 定义下载的SQL语句；
 
         OracleHelper oh = new OracleHelper();
-        List zong_count = (List) oh.getTableFromSQL("select count(*) co from TT_VEHICLE_CHECKAUTHITEM where 1=1 " + individualSearch, otherDBConstant.CONN_DMS);
+        List zong_count = (List) oh.getTableFromSQL("select count(*) co from XM_MANAGE where 1=1 " + individualSearch, otherDBConstant.CONN_118);
         totalLength = Integer.parseInt(oh.get_xy_fromList(zong_count, 0, "co").toString());
 
-        String tsql = "select * from (select rownum as rowno,t.*  from ( select APPROVAL_PERSON,REMARK,to_char(APPROVAL_DATE,'yyyy-mm-dd') APPROVAL_DATE from TT_VEHICLE_CHECKAUTHITEM where 1=1  " + individualSearch + order_by_str + ") t where rownum <= " + start_add_length + ") tt where rowno>" + start;
+        String tsql = "select * from (select rownum as rowno,t.*  from ( select XM_NAME,XM_B_DATE,XM_HYZKSJ from XM_MANAGE where 1=1  " + individualSearch + order_by_str + ") t where rownum <= " + start_add_length + ") tt where rowno>" + start;
 
-        List all_list = (List) oh.getTableFromSQL(tsql, otherDBConstant.CONN_DMS);
+        List all_list = (List) oh.getTableFromSQL(tsql, otherDBConstant.CONN_118);
 
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("draw", draw);
@@ -109,9 +109,43 @@ public class DataTables_1 extends BaseController {
         result.put("data", all_list);
         responseOutWithJson(response,result);
 
-
     }
 
+    //@GetMapping(value = "add")
+    @RequestMapping("new")
+    public ModelAndView add(HttpServletRequest request, HttpServletResponse response) {
+        //model.addAttribute("data", new Organization());
+        return new ModelAndView("/modules/DataTables_1/new");
+        //return displayModelAndView ("edit");
+    }
 
+    @RequestMapping("add_s")
+    public Response  add_s(HttpServletRequest request, HttpServletResponse response) {
+        Map<String,Object> map = new HashMap<String,Object>();
+        Enumeration paramNames = request.getParameterNames();
+        while (paramNames.hasMoreElements()) {
+            String paramName = (String) paramNames.nextElement();
 
+            String[] paramValues = request.getParameterValues(paramName);
+            if (paramValues.length >0) {
+                String paramValue = paramValues[0];
+                if (paramValue.length() != 0) {
+                    map.put(paramName, paramValue);
+                }
+            }
+        }
+
+        Set<Map.Entry<String, Object>> set = map.entrySet();
+        System.out.println("==============================================================");
+        for (Map.Entry entry : set) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
+        System.out.println("=============================================================");
+         return  Response.ok("保存成功！！");
+    }
 }
+
+
+
+
+

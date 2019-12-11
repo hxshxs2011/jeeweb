@@ -1,0 +1,131 @@
+<link rel="stylesheet" type="text/css" href="${staticPath}/modules/layui/css/layui.css">
+<script type="text/javascript" charset="utf8" src="${staticPath}/modules/layui/layui.js"></script>
+
+<form id="testform" class="form-horizontal" action="/DataTables_1/add_s" method="post"><input id="id" name="id" type="hidden" value="">	<table class="table table-bordered  table-condensed dataTables-example dataTable no-footer">
+    <tbody>
+    <tr>
+        <td class="width-15 active"><label class="pull-right">上级机构:</label></td>
+        <td class="width-35">
+            <input id="parentId" onclick="tree_open()" name="parentId" title="请选择上级机构" type="hidden" value="">		<div class="input-group">
+            <input id="parentname"  onclick="tree_open()" name="parentname" readonly="readonly" type="text" value="无" class="form-control">
+            <span class="input-group-btn">
+		   		 <button type="button" id="parentIdButton" class="btn btn-primary treebtn"><i class="fa fa-search"></i></button>
+		   		 <button type="button" id="parentIdClear" class="btn btn-default treebtn"><i class="fa  fa-remove"></i></button>
+			 </span>
+            <label class="Validform_checktip"></label>
+        </div>
+            <script type="text/javascript">
+                /*$(document).ready(function(){
+                    $("#parentIdButton, #parentname").click(function(){
+                        //打开树
+                        top.layer.open({
+                            type: 2,
+                            area: ['300px', '420px'],
+                            title:"请选择上级机构",
+                            maxmin: true, //开启最大化最小化按钮
+                            ajaxData:{selectIds: $("#parentId").val()},
+                            content: "/admin/common/treeselect?selectNodes=&chkboxType=ps&multiselect=false&url="+encodeURIComponent("/admin/sys/organization/treeData"),
+                            btn: ['确定', '关闭'],
+                            yes: function(index, layero){ //或者使用btn1
+                                var tree = layero.find("iframe")[0].contentWindow.treeObj;//h.find("iframe").contents();
+                                var ids = [], names = [], nodes = [];
+                                if (false){
+                                    nodes = tree.getCheckedNodes(true);
+                                }else{
+                                    nodes = tree.getSelectedNodes();
+                                }
+                                for(var i=0; i<nodes.length; i++) {
+                                    ids.push(nodes[i].id);
+                                    names.push(nodes[i].name);
+                                }
+                                $("#parentId").val(ids.join(",").replace(/u_/ig,""));
+                                $("#parentname").val(names.join(","));
+                                $("#parentname").focus();
+                                top.layer.close(index);
+
+                            },
+                            cancel: function(index){ //或者使用btn2
+                                //按钮【按钮二】的回调
+                            }
+                        });
+                    });
+
+                    $("#parentIdClear").click(function(){
+                        $("#parentId").val("");
+                        $("#parentname").val("无");
+                    });
+                });*/
+            </script>			</td>
+        <td class="width-15 active text-right">
+            <label><font color="red">*</font>机构名称:</label>
+        </td>
+        <td class="width-35">
+            <input id="XM_NAME" name="XM_NAME" nullmsg="请XX名称！" datatype="*" class="form-control " type="text" value="">				<label class="Validform_checktip"></label>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="width-15 active text-right">
+            <label>备注:</label>
+        </td>
+        <td class="width-35" colspan="3">
+            <textarea id="XM_B_DATE" name="XM_B_DATE" maxlength="200" class="form-control " rows="3"></textarea>			</td>
+    </tr>
+
+    <tr>
+        <td class="width-15 active text-right">
+            <label>备注2:</label>
+        </td>
+        <td class="width-35" colspan="3">
+            <textarea id="XM_HYZKSJ" name="XM_HYZKSJ" maxlength="200" class="form-control " rows="3"></textarea>			</td>
+    </tr>
+    </tbody>
+</table>
+</form>
+
+<link rel="stylesheet" type="text/css" href="${staticPath}/modules/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+<script type="text/javascript">
+    function tree_open(){
+
+        layui.layer.open(
+                {
+                    type: 1,
+                    content: '传入任意的文本或html' //这里content是一个普通的String
+                }
+        )
+        /*layui.layer.open({
+            type: 2,
+            area: ['300px', '420px'],
+            title:"请选择上级机构",
+            maxmin: true, //开启最大化最小化按钮
+            ajaxData:{selectIds: $("#parentId").val()},
+            content: "/admin/common/treeselect?selectNodes=&chkboxType=ps&multiselect=false&url="+encodeURIComponent("/admin/sys/organization/treeData"),
+            btn: ['确定', '关闭'],
+            yes: function(index, layero){ //或者使用btn1
+                var tree = layero.find("iframe")[0].contentWindow.treeObj;//h.find("iframe").contents();
+                var ids = [], names = [], nodes = [];
+                if (false){
+                    nodes = tree.getCheckedNodes(true);
+                }else{
+                    nodes = tree.getSelectedNodes();
+                }
+                for(var i=0; i<nodes.length; i++) {
+                    ids.push(nodes[i].id);
+                    names.push(nodes[i].name);
+                }
+                $("#parentId").val(ids.join(",").replace(/u_/ig,""));
+                $("#parentname").val(names.join(","));
+                $("#parentname").focus();
+                //top.layer.close(index);
+
+            },
+            cancel: function(index){ //或者使用btn2
+                //按钮【按钮二】的回调
+            }
+        });*/
+    }
+    </script>
+
+
+
